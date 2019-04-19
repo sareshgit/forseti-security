@@ -14,10 +14,11 @@
 
 """Unit Tests for Scanner DAO."""
 
+from builtins import zip
 from datetime import datetime
 from datetime import timedelta
 import hashlib
-from itertools import izip
+
 import json
 import os
 import unittest
@@ -66,7 +67,7 @@ class ScannerDaoTest(scanner_base_db.ScannerBaseDbTestCase):
                 'violation_data', 'violation_hash', 'resource_data',
                 'created_at_datetime']
 
-        for fake, saved in izip(scanner_base_db.FAKE_VIOLATIONS,
+        for fake, saved in zip(scanner_base_db.FAKE_VIOLATIONS,
                                 saved_violations):
             for key in keys:
                 if key == 'scanner_index_id':

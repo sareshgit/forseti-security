@@ -14,7 +14,8 @@
 
 """Forseti Server utilities."""
 
-from itertools import izip
+from builtins import zip
+
 import logging
 
 
@@ -245,7 +246,7 @@ def get_resources_from_full_name(full_name):
     full_name_parts = full_name.split('/')[:-1]
     full_name_parts.reverse()
     resource_iter = iter(full_name_parts)
-    for resource_id, resource_type in izip(resource_iter, resource_iter):
+    for resource_id, resource_type in zip(resource_iter, resource_iter):
         yield resource_type, resource_id
 
 
